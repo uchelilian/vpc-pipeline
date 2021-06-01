@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stags {
+    stage('submit stack'){
+      steps {
+      sh "aws cloudformation create-stack --stack-name VPCucstack --template-body file://vpc.json --tags Key=Name, Value=VPCuc --region 'us-east-1'"
+      }
+    }
+    }
+}
